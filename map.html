@@ -8,12 +8,15 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="./resources/ol.css">
         <link rel="stylesheet" href="resources/fontawesome-all.min.css">
-        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="resources/photon-geocoder-autocomplete.min.css">
         <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
         <link rel="stylesheet" href="./resources/qgis2web.css">
         <style>
-        html, body {
-            background-color: #ffffff;
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
         .ol-control > * {
             background-color: #f8f8f8!important;
@@ -26,24 +29,45 @@
         .search-layer-input-search {
             background-color: #f8f8f8!important;
         }
-        .ol-control > *:focus, .ol-control >*:hover {
+        .ol-control > *:focus, .ol-control > *:hover {
             background-color: rgba(248, 248, 248, 0.7)!important;
-        } 
+        }
         .ol-control {
             background-color: rgba(255,255,255,.4) !important;
             padding: 2px !important;
-        } 
-            /* Paksa daftar layer (TOC) agar otomatis terbuka di kanan */
+        }
+
+        /* Otomatis buka Table of Contents (TOC) di sebelah kanan */
         .ol-layerswitcher .panel {
             display: block !important;
         }
         .ol-layerswitcher button {
-            display: none !important; /* Sembunyikan ikon tombol kecilnya */
+            display: none !important;
         }
         .ol-layerswitcher {
-            top: 60px !important; /* Biar posisinya pas di bawah navbar menu kita */
+            top: 20px !important;
             right: 20px !important;
         }
         </style>
-
-       
+        <title>WebGIS Tanjung Riau - Map</title>
+    </head>
+    <body>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+        <script src="./resources/olms.js"></script>
+        <script src="layers/BalaiPertemuan_1.js"></script><script src="layers/FasilitasKesehatan_2.js"></script>
+        <script src="styles/BalaiPertemuan_1_style.js"></script><script src="styles/FasilitasKesehatan_2_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
